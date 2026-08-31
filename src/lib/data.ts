@@ -13,15 +13,27 @@ interface ProfileDoc {
 }
 
 const DEFAULT_PROFILE: Profile = {
-  name: "링크나무",
-  bio: "내 모든 링크를 한 페이지에 모아 두고, 하나의 URL로 공유하세요.",
-  avatarUrl: "",
+  name: "안준성",
+  bio: "가치 투자자 | 요즘에는 AI 개발에 관심이 많아요",
+  avatarUrl: "/profile.jpg",
 };
 
 const SAMPLE_LINKS: LinkItem[] = [
-  { id: "sample-github", title: "GitHub", url: "https://github.com", clicks: 12, order: 0 },
-  { id: "sample-blog", title: "블로그", url: "https://example.com", clicks: 34, order: 1 },
-  { id: "sample-instagram", title: "Instagram", url: "https://instagram.com", clicks: 7, order: 2 },
+  { id: "sample-github", title: "🦋 깃허브", url: "https://github.com", clicks: 12, order: 0 },
+  {
+    id: "sample-blog",
+    title: "📚 블로그",
+    url: "https://m.blog.naver.com/PostList.naver?blogId=a3412023",
+    clicks: 34,
+    order: 1,
+  },
+  {
+    id: "sample-email",
+    title: "📮 이메일",
+    url: "mailto:albertandnoah@gmail.com",
+    clicks: 7,
+    order: 2,
+  },
 ];
 
 /* ------------------------------ 조회 ------------------------------ */
