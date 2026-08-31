@@ -10,11 +10,11 @@ export default async function Home() {
   const [profile, links] = await Promise.all([getProfile(), getLinks()]);
 
   return (
-    <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col items-center justify-center px-5 pt-8 pb-24 sm:pt-10 sm:pb-32">
+    <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col items-center justify-center px-5 py-8 sm:pt-10 sm:pb-32">
       <ProfileHeader profile={profile} />
       <LinkList links={links} />
 
-      <footer className="mt-12 text-xs text-black/40 dark:text-white/40">
+      <footer className="mt-8 text-xs text-black/40 sm:mt-12 dark:text-white/40">
         <Link href="/admin" className="hover:underline">
           관리자
         </Link>

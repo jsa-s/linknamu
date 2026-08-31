@@ -11,7 +11,7 @@ export default function LinkList({ links }: { links: LinkItem[] }) {
   }
 
   return (
-    <div className="flex w-full flex-col gap-5">
+    <div className="flex w-full flex-col gap-3 sm:gap-5">
       {links.map((link) => (
         <LinkCard key={link.id} link={link} />
       ))}
