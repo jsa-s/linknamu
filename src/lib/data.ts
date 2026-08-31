@@ -19,7 +19,7 @@ const DEFAULT_PROFILE: Profile = {
 };
 
 const SAMPLE_LINKS: LinkItem[] = [
-  { id: "sample-github", title: "🦋 깃허브", url: "https://github.com", clicks: 12, order: 0 },
+  { id: "sample-github", title: "🦋 깃허브", url: "https://github.com/jsa-s", clicks: 12, order: 0 },
   {
     id: "sample-blog",
     title: "📚 블로그",
