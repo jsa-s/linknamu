@@ -11,22 +11,22 @@ export default async function Home() {
 
   return (
     <div className="relative flex min-h-dvh flex-col overflow-hidden">
-      {/* 유리 카드가 은은하게 반사할 따뜻한 배경 얼룩 */}
+      {/* 유리 카드가 은은하게 반사할 차가운 배경 얼룩 */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-[#ffcf9e]/45 blur-3xl sm:h-96 sm:w-96"
+        className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-[#a9d3f2]/45 blur-3xl sm:h-96 sm:w-96"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-24 top-1/3 h-72 w-72 rounded-full bg-[#ffbfa0]/35 blur-3xl sm:h-[26rem] sm:w-[26rem]"
+        className="pointer-events-none absolute -right-24 top-1/3 h-72 w-72 rounded-full bg-[#9ec6ec]/40 blur-3xl sm:h-[26rem] sm:w-[26rem]"
       />
 
       <main className="relative mx-auto flex w-full max-w-md flex-1 flex-col items-center justify-center px-6 py-14 sm:px-8 sm:py-20">
         <ProfileHeader profile={profile} />
         <LinkList links={links} />
 
-        <footer className="mt-12 text-xs text-[#8a7057] sm:mt-16">
-          <Link href="/admin" className="transition-colors hover:text-[#5f4a37]">
+        <footer className="mt-12 text-xs text-[#6b7c8a] sm:mt-16">
+          <Link href="/admin" className="transition-colors hover:text-[#3f5061]">
             관리자
           </Link>
         </footer>
