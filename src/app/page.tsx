@@ -1,4 +1,3 @@
-import Link from "next/link";
 import ProfileHeader from "@/components/ProfileHeader";
 import LinkList from "@/components/LinkList";
 import { getLinks, getProfile } from "@/lib/data";
@@ -24,12 +23,6 @@ export default async function Home() {
       <main className="relative mx-auto flex w-full max-w-md flex-1 flex-col items-center justify-center px-6 py-14 sm:px-8 sm:py-20">
         <ProfileHeader profile={profile} />
         <LinkList links={links} />
-
-        <footer className="mt-12 text-xs text-[#6b7c8a] sm:mt-16">
-          <Link href="/admin" className="transition-colors hover:text-[#3f5061]">
-            관리자
-          </Link>
-        </footer>
       </main>
     </div>
   );
