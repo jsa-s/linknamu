@@ -2,7 +2,8 @@ import ProfileHeader from "@/components/ProfileHeader";
 import LinkList from "@/components/LinkList";
 import { getLinks, getProfile } from "@/lib/data";
 
-// 클릭 수가 항상 최신으로 보이도록 매 요청마다 렌더링합니다.
+// 프로필·링크 목록을 항상 최신 DB 상태로 렌더링합니다.
+// (클릭 수는 클라이언트에서 /api/clicks 로 따로 조회합니다.)
 export const dynamic = "force-dynamic";
 
 export default async function Home() {

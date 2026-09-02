@@ -71,13 +71,31 @@ export async function getLinks(): Promise<LinkItem[]> {
   }));
 }
 
+/** 모든 링크의 현재 클릭 수를 { [id]: clicks } 형태로 한 번에 반환합니다. */
+export async function getAllClicks(): Promise<Record<string, number>> {
+  if (!isDbConfigured()) {
+    return Object.fromEntries(SAMPLE_LINKS.map((l) => [l.id, l.clicks]));
+  }
+
+  const db = await getDb();
+  const docs = await db
+    .collection("links")
+    .find({}, { projection: { clicks: 1 } })
+    .toArray();
+
+  return Object.fromEntries(docs.map((d) => [d._id.toString(), d.clicks ?? 0]));
+}
+
 /**
- * 리다이렉트 대상 URL을 반환하면서 클릭 수를 1 증가시킵니다.
+ * 주어진 링크의 클릭 수를 1 증가시키고 갱신된 값을 반환합니다.
  * 링크가 없으면 null.
  */
-export async function getLinkForRedirect(id: string): Promise<string | null> {
+export async function incrementClick(id: string): Promise<number | null> {
   if (!isDbConfigured()) {
-    return SAMPLE_LINKS.find((l) => l.id === id)?.url ?? null;
+    const link = SAMPLE_LINKS.find((l) => l.id === id);
+    if (!link) return null;
+    link.clicks += 1; // 샘플 모드에서는 프로세스 메모리상으로만 증가합니다.
+    return link.clicks;
   }
   if (!ObjectId.isValid(id)) return null;
 
@@ -87,8 +105,8 @@ export async function getLinkForRedirect(id: string): Promise<string | null> {
     .findOneAndUpdate(
       { _id: new ObjectId(id) },
       { $inc: { clicks: 1 } },
-      { returnDocument: "after" },
+      { returnDocument: "after", projection: { clicks: 1 } },
     );
 
-  return doc?.url ?? null;
+  return doc ? doc.clicks ?? 0 : null;
 }
