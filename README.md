@@ -14,7 +14,6 @@
 - 프로필 표시 (이름, 한 줄 소개, 프로필 사진)
 - 링크 카드 목록 (클릭 가능)
 - 링크별 클릭 수 집계 — `/r/[id]` 리다이렉트 시 +1
-- 관리자 페이지 `/admin` — 프로필 수정, 링크 추가/수정/삭제/순서 변경
 
 ## 실행
 
@@ -34,7 +33,6 @@ npm run dev
 | --- | --- |
 | `MONGODB_URI` | MongoDB Atlas 연결 문자열. 비우면 샘플 데이터로 동작 |
 | `MONGODB_DB` | 데이터베이스 이름 (기본값 `linknamu`) |
-| `ADMIN_PASSWORD` | `/admin` 로그인 비밀번호. 비우면 관리자 기능 비활성화 |
 
 ## 구조
 
@@ -42,10 +40,9 @@ npm run dev
 src/
 ├── app/
 │   ├── page.tsx           # 공개 프로필 페이지
-│   ├── r/[id]/route.ts    # 클릭 집계 + 리다이렉트
-│   └── admin/             # 관리자 페이지 + 서버 액션
-├── components/            # ProfileHeader, LinkCard, LinkList, LoginForm
-└── lib/                   # mongodb 연결, 데이터 액세스, 인증
+│   └── r/[id]/route.ts    # 클릭 집계 + 리다이렉트
+├── components/            # ProfileHeader, LinkCard, LinkList
+└── lib/                   # mongodb 연결, 데이터 액세스
 ```
 
 ## 데이터 모델 (MongoDB)
